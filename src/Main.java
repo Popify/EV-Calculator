@@ -1,7 +1,7 @@
 //THE BAREBONES
 
 
-import javafx.application.Application;
+/*import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -75,14 +75,16 @@ public class Main extends Application
 				numberField1.setText(newValue.replaceAll("[^\\d]", ""));
 			}
 		});
+		*/
 
-		numberField2.textProperty().addListener((observable, oldValue, newValue) ->
+		/*numberField2.textProperty().addListener((observable, oldValue, newValue) ->
 		{
 			if(!newValue.matches("\\d*"))
 			{
 				numberField2.setText(newValue.replaceAll("[^\\d]", ""));
 			}
 		});
+
 
 		numberField3.textProperty().addListener(((observable, oldValue, newValue) ->
 		{
@@ -122,7 +124,7 @@ public class Main extends Application
 
 	private static double expectedValue(double winRate, double minEV, double opponentStake)
 	{
-		winRate = winRate / 100 / 100;
+		winRate = winRate / 100;
 		minEV = minEV / 100;
 
 		double yourStake = (winRate * opponentStake) / (minEV + (1 - winRate));
@@ -131,5 +133,58 @@ public class Main extends Application
 
 	}
 
+
+}*/
+
+
+import java.io.IOException;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class Main extends Application
+{
+	private Stage primaryStage;
+	private AnchorPane layout;
+
+
+	@Override
+	public void start(Stage primaryStage)
+	{
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("EV Calculator");
+
+		initLayout();
+
+
+	}
+
+	public void initLayout()
+	{
+		try
+		{
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("Calculator.fxml"));
+			layout = loader.load();
+
+			Scene scene = new Scene(layout);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+
+	public static void main(String[] args)
+	{
+		launch(args);
+
+	}
 
 }
