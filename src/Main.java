@@ -173,6 +173,9 @@ public class Main extends Application
 			Scene scene = new Scene(layout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+
+			Calculator controller = loader.getController();
+			controller.setMain(this);
 		}
 		catch (IOException e)
 		{
@@ -186,5 +189,7 @@ public class Main extends Application
 		launch(args);
 
 	}
+
+
 
 }
