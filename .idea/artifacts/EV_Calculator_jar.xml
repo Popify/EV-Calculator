@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EV Calculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EV_Calculator_jar</output-path>
+    <root id="archive" name="EV Calculator.jar">
+      <element id="module-output" name="EV Calculator" />
+    </root>
+  </artifact>
+</component>
