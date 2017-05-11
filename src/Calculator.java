@@ -59,15 +59,15 @@ public class Calculator
 		stakeAmount.setText("0");
 		winRate.setText("0");
 
-		offerData.add(new Offer("10.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 10)));
-		offerData.add(new Offer("12.5%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 12.5)));
-		offerData.add(new Offer("15.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 15)));
-		offerData.add(new Offer("17.5%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 17.5)));
-		offerData.add(new Offer("20.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 20)));
-		offerData.add(new Offer("25.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 25)));
-		offerData.add(new Offer("30.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 30)));
-		offerData.add(new Offer("35.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 35)));
-		offerData.add(new Offer("40.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 40)));
+		offerData.add(new Offer("10.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 10)));
+		offerData.add(new Offer("12.50%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 12.5)));
+		offerData.add(new Offer("15.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 15)));
+		offerData.add(new Offer("17.50%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 17.5)));
+		offerData.add(new Offer("20.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 20)));
+		offerData.add(new Offer("25.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 25)));
+		offerData.add(new Offer("30.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 30)));
+		offerData.add(new Offer("35.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 35)));
+		offerData.add(new Offer("40.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 40)));
 
 
 
@@ -89,15 +89,15 @@ public class Calculator
 		calculate.setOnAction(event ->
 		{
 			offerData.removeAll(offerData);
-			offerData.add(new Offer("10.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 10)));
-			offerData.add(new Offer("12.5%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 12.5)));
-			offerData.add(new Offer("15.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 15)));
-			offerData.add(new Offer("17.5%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 17.5)));
-			offerData.add(new Offer("20.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 20)));
-			offerData.add(new Offer("25.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 25)));
-			offerData.add(new Offer("30.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 30)));
-			offerData.add(new Offer("35.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 35)));
-			offerData.add(new Offer("40.0%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 40)));
+			offerData.add(new Offer("10.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .10)));
+			offerData.add(new Offer("12.50%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .125)));
+			offerData.add(new Offer("15.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .15)));
+			offerData.add(new Offer("17.50%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .175)));
+			offerData.add(new Offer("20.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .20)));
+			offerData.add(new Offer("25.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .25)));
+			offerData.add(new Offer("30.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .30)));
+			offerData.add(new Offer("35.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .35)));
+			offerData.add(new Offer("40.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .40)));
 			calculationsTable.refresh();
 		});
 
@@ -105,12 +105,15 @@ public class Calculator
 
 	private static double expectedValue(double winRate, double opponentStake, double preferredEV)
 	{
-		//DecimalFormat dollars = new DecimalFormat("#.##");
-		winRate /= 100;
+		DecimalFormat dollars = new DecimalFormat("#.##");
 
-		double yourStake = (winRate * opponentStake) / (preferredEV + (1 - winRate));
+		winRate /= 100.0;
 
-		//yourStake = Double.valueOf(dollars.format(yourStake));
+
+
+		double yourStake = (winRate * opponentStake) / (preferredEV + (1.0 - winRate));
+
+		yourStake = Double.valueOf(dollars.format(yourStake));
 
 		return yourStake;
 
