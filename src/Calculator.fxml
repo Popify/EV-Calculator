@@ -26,7 +26,8 @@
          <children>
           <AnchorPane fx:id="bottom" minHeight="0.0" minWidth="0.0" prefHeight="272.0" prefWidth="280.0">
                <children>
-                  <Button fx:id="calculate" layoutX="104.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Calculate" AnchorPane.bottomAnchor="-35.0" />
+                  <Button fx:id="calculate" layoutX="104.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Calculate" AnchorPane.bottomAnchor="-35.0" AnchorPane.leftAnchor="50.0" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Presets" AnchorPane.bottomAnchor="-35.0" AnchorPane.rightAnchor="50.0" />
                   <TableView fx:id="calculationsTable" prefHeight="280.0" prefWidth="278.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                     <columns>
                         <TableColumn fx:id="percentEV" editable="false" prefWidth="139.0" resizable="false" text="EV %" />
