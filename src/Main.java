@@ -142,6 +142,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -162,6 +163,8 @@ public class Main extends Application
 
 	}
 
+
+
 	public void initLayout()
 	{
 		try
@@ -171,8 +174,13 @@ public class Main extends Application
 			layout = loader.load();
 
 			Scene scene = new Scene(layout);
+
+			primaryStage.getIcons().add(new Image("/cx.jpg"));
+			scene.getStylesheets().add(getClass().getResource("/stylesheet.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+
+
 
 			Calculator controller = loader.getController();
 			controller.setMain(this);
@@ -186,11 +194,10 @@ public class Main extends Application
 
 	public static void main(String[] args)
 	{
+
 		launch(args);
 
 	}
-
-
 
 
 

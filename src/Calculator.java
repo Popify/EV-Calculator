@@ -6,7 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
+import javafx.geometry.Orientation;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.util.Callback;
 
 
 public class Calculator
@@ -36,6 +41,12 @@ public class Calculator
 	private TextField winRate;
 
 	@FXML
+	private AnchorPane top;
+
+	@FXML
+	private AnchorPane bottom;
+
+	@FXML
 	private ResourceBundle resources;
 
 	@FXML
@@ -49,15 +60,29 @@ public class Calculator
 	{
 
 
-
-
 	}
+
 
 	@FXML
 	void initialize()
 	{
+
 		stakeAmount.setText("0");
 		winRate.setText("0");
+
+		calculationsTable.setFixedCellSize(22.5);
+		calculationsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+		percentEV.setPrefWidth(138);
+		offer.setPrefWidth(138);
+
+		calculationsTable.setId("my-table");
+		bottom.setId("bottom-pane");
+		top.setId("top-pane");
+
+
+
+
 
 		offerData.add(new Offer("10.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 10)));
 		offerData.add(new Offer("12.50%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 12.5)));
@@ -68,6 +93,8 @@ public class Calculator
 		offerData.add(new Offer("30.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 30)));
 		offerData.add(new Offer("35.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 35)));
 		offerData.add(new Offer("40.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 40)));
+		offerData.add(new Offer("45.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 40)));
+		offerData.add(new Offer("50.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), 40)));
 
 
 
@@ -75,12 +102,12 @@ public class Calculator
 		percentEV.setCellValueFactory(cellData -> cellData.getValue().percentEVProperty());
 		offer.setCellValueFactory(cellData -> cellData.getValue().offerResultProperty().asObject());
 
-
 	}
 
 	public void setMain(Main main)
 	{
 		this.main = main;
+
 
 
 
@@ -98,6 +125,8 @@ public class Calculator
 			offerData.add(new Offer("30.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .30)));
 			offerData.add(new Offer("35.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .35)));
 			offerData.add(new Offer("40.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .40)));
+			offerData.add(new Offer("45.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .45)));
+			offerData.add(new Offer("50.00%", expectedValue(Double.parseDouble(winRate.getText()), Double.parseDouble(stakeAmount.getText()), .50)));
 			calculationsTable.refresh();
 		});
 
@@ -118,6 +147,8 @@ public class Calculator
 		return yourStake;
 
 	}
+
+
 
 	private ObservableList<Offer> offerData = FXCollections.observableArrayList();
 
