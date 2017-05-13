@@ -8,26 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="280.0" prefHeight="400.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Calculator">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="280.0" prefHeight="390.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Calculator">
    <children>
       <Pane prefHeight="65.0" prefWidth="280.0">
          <children>
           <AnchorPane fx:id="top" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="280.0">
                <children>
-                  <Label fx:id="opponentStake" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="128.0" text="Opponent's Stake" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                  <TextField fx:id="stakeAmount" alignment="CENTER" layoutX="40.0" layoutY="33.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="35.0" />
-                  <TextField fx:id="winRate" alignment="CENTER" prefHeight="25.0" prefWidth="70.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="35.0" />
-                  <Label fx:id="oddsPercent" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="100.0" text="Odds %" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="opponentStake" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="128.0" text="Opponent's Stake" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="25.0" />
+                  <TextField fx:id="stakeAmount" alignment="CENTER" layoutX="40.0" layoutY="33.0" prefHeight="25.0" prefWidth="70.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="50.0" />
+                  <TextField fx:id="winRate" alignment="CENTER" prefHeight="25.0" prefWidth="70.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="50.0" />
+                  <Label fx:id="oddsPercent" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="100.0" text="Odds %" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
                </children>
             </AnchorPane>
          </children>
       </Pane>
-      <Pane prefHeight="310.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <Pane prefHeight="310.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0">
          <children>
           <AnchorPane fx:id="bottom" minHeight="0.0" minWidth="0.0" prefHeight="272.0" prefWidth="280.0">
                <children>
-                  <Button fx:id="calculate" layoutX="104.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Calculate" AnchorPane.bottomAnchor="-35.0" AnchorPane.leftAnchor="50.0" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Presets" AnchorPane.bottomAnchor="-35.0" AnchorPane.rightAnchor="50.0" />
                   <TableView fx:id="calculationsTable" prefHeight="280.0" prefWidth="278.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                     <columns>
                         <TableColumn fx:id="percentEV" editable="false" prefWidth="139.0" resizable="false" text="EV %" />
@@ -39,6 +37,7 @@
                   </TableView>
                </children>
             </AnchorPane>
+            <Button fx:id="calculate" layoutX="105.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Calculate" />
          </children>
       </Pane>
    </children>
